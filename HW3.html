@@ -1,0 +1,90 @@
+<html lang="en-US"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>HW3</title>
+
+  <style>
+    body { max-width: 500px; }
+    #sample { overflow-x: auto; }
+    button {
+      user-select: none;
+      cursor: pointer;
+    }
+    #box {
+      font-size: 180px;
+      background: #cfc;
+      width: 300px;
+      height: 240px;
+      position: relative;
+    }
+    #iii, #dot {
+      user-select: none;
+      position: absolute;
+      left: 130px;
+    }
+    #iii {
+      color: blue;
+    }
+    #dot {
+      background: rgba(0, 0, 0, 0);
+      color: #da0;
+      top: -105px;
+    }
+    #out {
+      height: 35px;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2 id="title">HW3</h2>
+
+<div id="box" onclick="box.animate(t2, 5000)">
+  <span id="iii">ı</span>
+  <span id="dot">.</span>
+</div>
+
+<p>
+<button onclick="this.animate(t1, 5000)">start</button>
+<button onclick="dot .animate(t2, 5000)">pause</button>
+<button onclick="box .animate(t3, 6000)">stop</button>
+<button onclick="out .animate(t4, 6000)">next</button>
+<button onclick="this.animate(t1, 5000)">prev</button>
+</p>
+
+<div id="out">Animations in JS are simple and powerful</div>
+
+<hr>
+<b>Sample code</b>
+<pre id="sample">t3 = { background: ["yellow", "cyan", "magenta", "yellow"] }<br>&lt;button onClick="box.animate(t3, 6000)"&gt;background&lt;/button&gt;</pre>
+
+<hr>
+<p>Ref: <a href="https://webkit.org/blog/8343/web-animations-in-webkit/" target="NewTab">Web Animations in WebKit</a>
+</p>
+
+<script>
+/*let canvas = document.querySelector('canvas');
+let cx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+//create empty array
+let images = [];
+images.length = 9;
+
+//push the images into array
+for(let i = 1; i<images.length; i++){
+    images[i] = new Image();
+    images[i].src = 'sprite/' + i.toString() + '.jpg';
+}*/
+fetch("sprite/")
+</script>
+
+</style> 
+
+
+
+
+</body></html>
