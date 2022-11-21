@@ -48,7 +48,7 @@ function verifyIBAN(s) {
     var acc = 0;
     function add(n) {
         if (n == 32) return
-        // if (acc > 1000000) acc %= 97;
+            if (acc > 1000000) acc %= 97;
         acc = n < ASCII_A ? 10 * acc + n - ASCII_0 
             : 100 * acc + n - ASCII_A + 10;
         acc %= 97;
