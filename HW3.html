@@ -10,29 +10,7 @@
       user-select: none;
       cursor: pointer;
     }
-    #box {
-      font-size: 180px;
-      background: #cfc;
-      width: 300px;
-      height: 240px;
-      position: relative;
-    }
-    #iii, #dot {
-      user-select: none;
-      position: absolute;
-      left: 130px;
-    }
-    #iii {
-      color: blue;
-    }
-    #dot {
-      background: rgba(0, 0, 0, 0);
-      color: #da0;
-      top: -105px;
-    }
-    #out {
-      height: 35px;
-    }
+    
   </style>
 </head>
 
@@ -40,10 +18,7 @@
 
 <h2 id="title">HW3</h2>
 
-<div id="box" onclick="box.animate(t2, 5000)">
-  <span id="iii">ı</span>
-  <span id="dot">.</span>
-</div>
+<img id="a1"/>
 
 <p>
 <button onclick="this.animate(t1, 5000)">start</button>
@@ -64,22 +39,19 @@
 </p>
 
 <script>
-/*let canvas = document.querySelector('canvas');
-let cx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
 
-//create empty array
-let images = [];
-images.length = 9;
+/*let arr = ['sprite/1.jpg','sprite/2.jpg','sprite/3.jpg','sprite/4.jpg','sprite/5.jpg',
+          'sprite/6.jpg','sprite/7.jpg','sprite/8.jpg','sprite/9.jpg',]*/
+for(let i=1; i<=9; i++){
+  fetch('sprite\1.jpg') 
+  .then(res => res.blob()) // Gets the response and returns it as a blob 
+  .then(blob => { 
+      let objectURL = URL.createObjectURL(blob); 
+      usableImage = objectURL; 
+a1.src = usableImage; });
+}
 
-//push the images into array
-for(let i = 1; i<images.length; i++){
-    images[i] = new Image();
-    images[i].src = 'sprite/' + i.toString() + '.jpg';
-}*/
-fetch("sprite/")
 </script>
 
 </style> 
