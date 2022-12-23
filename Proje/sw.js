@@ -1,5 +1,5 @@
-const CACHE ='Proje'
-const FILES = ['https://github.com/Meryemayd/AdvancedProgramming/blob/main/Proje/manifest.json','https://github.com/Meryemayd/AdvancedProgramming/blob/main/Proje/icon.jpeg', 'https://github.com/Meryemayd/AdvancedProgramming/blob/main/Proje/proje.html']
+const CACHE ='https://meryemayd.github.io/AdvancedProgramming/Proje/proje.html'
+const FILES = ['https://meryemayd.github.io/AdvancedProgramming/Proje/proje.html']
 function installCB(e) {
   e.waitUntil(
     caches.open(CACHE)
@@ -7,14 +7,14 @@ function installCB(e) {
     .catch(console.log)
   )
 }
-self.addEventListener('install', installCB)
+self.addEventListener('install', installCB)
 
 function cacheCB(e) { //cache first
-    let req = e.request
-    e.respondWith(
-      caches.match(req)
-      .then(r1 => r1 || fetch(req))
-      .catch(console.log)
-    )
-  }
-  self.addEventListener('fetch', cacheCB)
+  let req = e.request
+  e.respondWith(
+    caches.match(req)
+    .then(r1 => r1 || fetch(req))
+    .catch(console.log)
+  )
+}
+self.addEventListener('fetch', cacheCB)
