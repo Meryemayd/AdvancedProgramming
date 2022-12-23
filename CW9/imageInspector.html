@@ -92,7 +92,7 @@
       }
   loadImage(url) {
       switch (Number(url)) {
-        case 1: url = "../ev.png"
+        case 1: url = "../images/balon.jpg"
           break;
         case 2: url = "../images/cilek.jpg"
           break;
@@ -161,8 +161,8 @@
     function init() {
     MENU = new Graph(); //global
     display(MENU); display(cx); display(img);
-    MENU.loadImage(1)
-    }
+    MENU.loadImage("https://ilaydasagkol.github.io/APT/icon192.png")
+}
     canvas.addEventListener('mousemove', pick);
     try {
         inspect(sss, init); //makes Inspector table
