@@ -201,7 +201,8 @@
 
         //selected movieyi değiştirdiğimizde tekrar hesaplama yapmalı
         select.addEventListener('change', function(e){
-            calculateTotal();
+            //calculateTotal();
+            e.selectedSeats.forEach('seat');
         });
         function calculateTotal(){
             //selected koltukların bilgisini tutarız
@@ -256,6 +257,8 @@
             localStorage.setItem('selectedSeats', JSON.stringify(indexs));
             localStorage.setItem('selectedMovieIndex',select.selectedIndex);
         }
+        //movie değiştirdiğimizde seçili koltuklar sıfırlama
+        //function removeSelectedSeat
 
 
     </script>
