@@ -7,7 +7,7 @@ function installCB(e) {
     .catch(console.log)
   )
 }
-self.addEventListener('install', installCB)
+self.addEventListener('install', installCB)
 
 function cacheCB(e) { //cache first
   let req = e.request
@@ -17,4 +17,4 @@ function cacheCB(e) { //cache first
     .catch(console.log)
   )
 }
-self.addEventListener('fetch', cacheCB)
+self.addEventListener('fetch', cacheCB)
