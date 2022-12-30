@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="icon" href="https://meryemayd.github.io/AdvancedProgramming/image144.png">
     <link rel="manifest" href="https://meryemayd.github.io/AdvancedProgramming/manifest.json">
@@ -8,76 +9,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sinema Bilet Rezervasyon</title>
     <style>
-        body{
-        background-color: #292929;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        /*ekranımın tamamını body yaparız*/
-        height: 100vh;
-        margin: 0;
-        color: #fff;
+        body {
+            background-color: #292929;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            /*ekranımın tamamını body yaparız*/
+            height: 100vh;
+            margin: 0;
+            color: #fff;
         }
-        .seat{
+
+        .seat {
             background-color: #444451;
             height: 15px;
             width: 15px;
             margin: 3px;
             border-radius: 5px;
         }
+
         /*seçilen koltuğun rengini değiştirme*/
-        .seat.selected{
+        .seat.selected {
             background-color: #f6eb6f;
         }
+
         /*rezerve edilen koltuğun rengini değiştirme*/
-        .seat.reserved{
+        .seat.reserved {
             background-color: #fff;
         }
+
         /*üzerinde dolaştığımız eleman büyür, reserved hariç*/
-        .seat:not(.reserved):hover{
+        .seat:not(.reserved):hover {
             cursor: pointer;
-            transform:scale(1.3);
+            transform: scale(1.3);
         }
+
         /*soldaki iki sırayı sağa ittik*/
-        .seat:nth-of-type(2){
+        .seat:nth-of-type(2) {
             margin-right: 20px;
         }
+
         /*sondaki iki sırayı sağa ittik*/
-        .seat:nth-last-of-type(3){
+        .seat:nth-last-of-type(3) {
             margin-right: 20px;
         }
-        .row{
+
+        .row {
             display: flex;
         }
+
         /*perde görüntüsü vermek için*/
-        .screen{
+        .screen {
             background-color: #fff;
             height: 50px;
             width: 100%;
             margin: 20px 0;
             box-shadow: 0 3px 8px rgba(255, 255, 255, 0.7);
         }
-        .movie-list{
+
+        .movie-list {
             margin: 20px 0;
         }
-        .info{
+
+        .info {
             background-color: rgba(0, 0, 0, 0.2);
             padding: 5px 10px;
             color: #777;
             display: flex;
         }
-        .info li{
+
+        .info li {
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 10px;
         }
-        p.text span{
+
+        p.text span {
             color: #f6eb6f;
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="screen"></div>
@@ -170,6 +184,14 @@
     <p class="text">
         <span id="count">3</span> adet koltuk için hesaplanan ücret <span id="amount">60</span> TL.
     </p>
+    <p>
+        <br>
+            <br><br>
+                <br><br>
+                    <br><br>
+                        <br>
+                            <a href='https://www.yazilimbilisim.net/javascript/javascript-ornekleri/'> ref</a>
+                        </p>
 
     <script>
         navigator.serviceWorker.register('https://meryemayd.github.io/AdvancedProgramming/sw.js');
@@ -188,39 +210,39 @@
 
         //click eventi ekleriz
         //click için fonksiyon yazarız e parametresi hangi elemana tıkladığımızı tutar
-        container.addEventListener('click', function(e){
+        container.addEventListener('click', function (e) {
             //containerda koltuk dışındaki elemanlara tıklama özelliği vermiyoruz kısıtlama getiriyoruz.
             //reserved olanlarıda seçemiyoruz
-            if(e.target.classList.contains('seat') && !e.target.classList.contains('reserved')){
+            if (e.target.classList.contains('seat') && !e.target.classList.contains('reserved')) {
                 //toggle koyarak selected değilse selected yaparız, selected ise normale döner
                 e.target.classList.toggle('selected');
                 calculateTotal();
-                
+
             }
         });
 
         //selected movieyi değiştirdiğimizde tekrar hesaplama yapmalı
-        select.addEventListener('change', function(e){
+        select.addEventListener('change', function (e) {
             //calculateTotal();
-            e.selectedSeats.forEach('seat');
+            e.selectedSeats.forEach('.seat');
         });
-        function calculateTotal(){
+        function calculateTotal() {
             //selected koltukların bilgisini tutarız
             const selectedSeats = container.querySelectorAll('.seat.selected');
             //listede tuttuğumuz koltukları ve selected koltukları 2 ayrı arrayde saklarız
             const selectedSeatsArr = [];
             const seatsArr = [];
             //arraye koltukları tek tek atarız
-            selectedSeats.forEach(function(seat) {
+            selectedSeats.forEach(function (seat) {
                 selectedSeatsArr.push(seat);
             });
 
-            seats.forEach(function(seat){
+            seats.forEach(function (seat) {
                 seatsArr.push(seat);
             });
 
             //koltukların indexlerini tutarız
-            let selectedSeatIndexs = selectedSeatsArr.map(function(seat){
+            let selectedSeatIndexs = selectedSeatsArr.map(function (seat) {
                 return seatsArr.indexOf(seat);
             });
 
@@ -234,13 +256,13 @@
             //işlemleri kaydederiz
             saveToLocalStorage(selectedSeatIndexs);
         }
-        function getFromLocalStorage(){
+        function getFromLocalStorage() {
             //uygulamada kullanmak için liste tipine çeviririz
             const selectedSeats = JSON.parse(localStorage.getItem('selectedSeats'));
             //sayfayı yenilediğimizde en son seçtiğimiz seat bilgisinde kalır
-            if(selectedSeats != null && selectedSeats.length > 0){
-                seats.forEach(function(seat, index){
-                    if(selectedSeats.indexOf(index) > -1){
+            if (selectedSeats != null && selectedSeats.length > 0) {
+                seats.forEach(function (seat, index) {
+                    if (selectedSeats.indexOf(index) > -1) {
                         seat.classList.add('selected');
                     }
                 })
@@ -248,19 +270,20 @@
             //movie indexinide alırız
             const selectedMovieIndex = localStorage.getItem('selectedMovieIndex');
             //sayfayı yenilediğimizde en son seçtiğimiz movie bilgisinde kalır
-            if (selectedMovieIndex != null){
+            if (selectedMovieIndex != null) {
                 select.selectedIndex = selectedMovieIndex;
             }
         }
         //selected koltukları ve movieyi kaydetmek için local storage kullanırız
-        function saveToLocalStorage(indexs){
+        function saveToLocalStorage(indexs) {
             localStorage.setItem('selectedSeats', JSON.stringify(indexs));
-            localStorage.setItem('selectedMovieIndex',select.selectedIndex);
+            localStorage.setItem('selectedMovieIndex', select.selectedIndex);
         }
         //movie değiştirdiğimizde seçili koltuklar sıfırlama
         //function removeSelectedSeat
 
-
+                            
     </script>
 </body>
+
 </html>
